@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TETIM — магазин одежды</title>
+  <meta name="description" content="Локальный бренд одежды. Спортивные костюмы, футболки и командная форма." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-line">
+      <div class="container top-line-inner">
+        <div class="top-line-left">
+          <span>Доставка по Якутску</span>
+          <span><a href="https://2gis.ru/yakutsk/firm/70000001037828491/129.713869%2C62.01599?m=129.715212%2C62.015774%2F17.28" target="_blank" rel="noreferrer">Дежнева 30</a></span>
+        </div>
+        <div class="top-line-right">
+          <a href="login.html">Войти</a>
+          <a href="account.html">Кабинет</a>
+          <a href="admin.html">Админ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="container main-header-inner">
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo-full.png" alt="TETIM" class="brand-logo" />
+        </a>
+
+        <a href="catalog.html" class="catalog-button">Каталог</a>
+
+        <div class="search-box">
+          <input type="text" placeholder="Поиск по товарам" />
+        </div>
+
+        <div class="header-icons">
+          <a href="account.html" class="header-icon-link">Профиль</a>
+          <a href="cart.html" class="header-icon-link cart-link">Корзина <span id="cart-count">0</span></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="category-nav">
+      <div class="container category-nav-inner">
+        <a href="catalog.html?category=sport">Спорт</a>
+        <a href="catalog.html?category=outdoor">Outdoor</a>
+        <a href="catalog.html?category=team">Командные</a>
+        <a href="catalog.html?category=tshirts">Футболки</a>
+        <a href="catalog.html?category=hoodies">Худи</a>
+        <a href="catalog.html?category=accessories">Аксессуары</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-large">
+      <div class="container hero-large-grid">
+        <div class="hero-large-content">
+          <div class="hero-label">Новая коллекция</div>
+          <h1>Функциональная одежда для города, спорта и outdoor</h1>
+          <p>Структура сайта как у большого интернет-магазина: удобный каталог, отдельная корзина, подборки и категории.</p>
+          <div class="hero-buttons">
+            <a href="catalog.html" class="btn btn-dark">Перейти в каталог</a>
+            <a href="cart.html" class="btn btn-light">Открыть корзину</a>
+          </div>
+        </div>
+        <div class="hero-large-image">
+          <img src="https://placehold.co/900x620?text=TETIM+Hero" alt="TETIM коллекция" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title-row">
+          <h2>Популярные категории</h2>
+        </div>
+        <div class="promo-categories-grid">
+          <a href="catalog.html?category=sport" class="promo-category-card">Спортивные костюмы</a>
+          <a href="catalog.html?category=tshirts" class="promo-category-card">Футболки</a>
+          <a href="catalog.html?category=outdoor" class="promo-category-card">Outdoor</a>
+          <a href="catalog.html?category=team" class="promo-category-card">Командная форма</a>
+          <a href="catalog.html?category=hoodies" class="promo-category-card">Худи</a>
+          <a href="catalog.html?category=accessories" class="promo-category-card">Аксессуары</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-title-row">
+          <h2>Хиты продаж</h2>
+          <a href="catalog.html" class="section-link">Смотреть все</a>
+        </div>
+        <div id="home-products" class="products-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container promo-banner-grid">
+        <div class="wide-banner dark-banner">
+          <div>
+            <div class="hero-label">Для команд</div>
+            <h3>Пошив формы, мерча и комплектов под заказ</h3>
+            <p>Для клубов, организаций, спортивных мероприятий и корпоративных команд.</p>
+          </div>
+        </div>
+        <div class="wide-banner gold-banner">
+          <div>
+            <div class="hero-label hero-label-light">Спецпредложение</div>
+            <h3>Подборки и акции для сезонных коллекций</h3>
+            <p>На этой зоне можно выводить распродажи, новинки и специальные предложения.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-title-row">
+          <h2>Преимущества</h2>
+        </div>
+        <div class="advantages-grid-shop">
+          <div class="advantage-box">
+            <h3>Быстрая доставка</h3>
+            <p>Доставка по городу и удобное оформление заказа.</p>
+          </div>
+          <div class="advantage-box">
+            <h3>Удобная корзина</h3>
+            <p>Отдельная страница корзины и оформление заказа в одном месте.</p>
+          </div>
+          <div class="advantage-box">
+            <h3>Личный кабинет</h3>
+            <p>История заказов и профиль покупателя.</p>
+          </div>
+          <div class="advantage-box">
+            <h3>Интеграция с CRM</h3>
+            <p>Заказы можно передавать в amoCRM и дальше в 1С.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo-full.png" alt="TETIM" class="footer-logo" />
+        <p>Структура магазина в формате крупного e-commerce проекта.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p>Дежнева 30</p>
+        <p>8-999-060-00-75</p>
+      </div>
+      <div>
+        <h4>Соцсети</h4>
+        <a href="https://www.instagram.com/tetim_yktbrand?igsh=MTJzaXFmYnllbnhoNg==" target="_blank" rel="noreferrer">Instagram</a>
+        <p> <a href="https:wa.me/+79990600075" target="_blank" rel="noreferrer">whatapp</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Регистрация — TETIM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container auth-page">
+    <div class="card auth-card">
+      <h1>Регистрация</h1>
+      <form id="register-form" class="form">
+        <input type="text" id="register-name" placeholder="Имя" required />
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="tel" id="register-phone" placeholder="Телефон" required />
+        <input type="password" id="register-password" placeholder="Пароль" required />
+        <button type="submit" class="btn btn-primary full-width">Создать аккаунт</button>
+      </form>
+      <div id="register-message" class="message hidden"></div>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const message = document.getElementById('register-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        name: document.getElementById('register-name').value.trim(),
+        email: document.getElementById('register-email').value.trim(),
+        phone: document.getElementById('register-phone').value.trim(),
+        password: document.getElementById('register-password').value.trim()
+      };
+
+      try {
+        const response = await fetch('http://localhost:4000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Ошибка регистрации');
+
+        message.textContent = 'Аккаунт создан. Теперь можно войти.';
+        message.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        message.textContent = error.message;
+        message.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

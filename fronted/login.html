@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — TETIM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container auth-page">
+    <div class="card auth-card">
+      <h1>Вход</h1>
+      <form id="login-form" class="form">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Пароль" required />
+        <button type="submit" class="btn btn-primary full-width">Войти</button>
+      </form>
+      <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+      <div id="login-message" class="message hidden"></div>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const message = document.getElementById('login-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        email: document.getElementById('login-email').value.trim(),
+        password: document.getElementById('login-password').value.trim()
+      };
+
+      try {
+        const response = await fetch('http://localhost:4000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Ошибка входа');
+
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        window.location.href = data.user.role === 'admin' ? 'admin.html' : 'account.html';
+      } catch (error) {
+        message.textContent = error.message;
+        message.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

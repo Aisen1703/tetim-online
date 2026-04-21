@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог — TETIM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-line">
+      <div class="container top-line-inner">
+        <div class="top-line-left">
+          <span>Доставка по Якутску</span>
+          <span>Дежнева 30</span>
+        </div>
+        <div class="top-line-right">
+          <a href="login.html">Войти</a>
+          <a href="account.html">Кабинет</a>
+          <a href="admin.html">Админ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="container main-header-inner">
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo-full.png" alt="TETIM" class="brand-logo" />
+        </a>
+
+        <a href="catalog.html" class="catalog-button">Каталог</a>
+
+        <div class="search-box">
+          <input type="text" id="catalog-search" placeholder="Поиск по каталогу" />
+        </div>
+
+        <div class="header-icons">
+          <a href="account.html" class="header-icon-link">Профиль</a>
+          <a href="cart.html" class="header-icon-link cart-link">Корзина <span id="cart-count">0</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container catalog-page">
+    <div class="catalog-layout">
+      <aside class="catalog-sidebar card-lite">
+        <h3>Категории</h3>
+        <div class="sidebar-filters">
+          <button class="sidebar-filter active" data-category="all">Все товары</button>
+          <button class="sidebar-filter" data-category="sport">Спорт</button>
+          <button class="sidebar-filter" data-category="hunting and fishing">Охота и Рыбалка</button>
+          <button class="sidebar-filter" data-category="team">Командные</button>
+          <button class="sidebar-filter" date-category="tracksuits">Спортивные костюмы</button>
+          <button class="sidebar-filter" data-category="tshirts">Футболки</button>
+          <button class="sidebar-filter" data-category="hoodies">Худи</button>
+          <button class="sidebar-filter" data-category="accessories">Аксессуары</button>
+        </div>
+      </aside>
+
+      <section class="catalog-content">
+        <div class="section-title-row">
+          <div>
+            <h1>Каталог</h1>
+            <p>Полноценная страница каталога с фильтрами и поиском</p>
+          </div>
+        </div>
+        <div id="catalog-products" class="products-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="catalog.js"></script>
+</body>
+</html>
