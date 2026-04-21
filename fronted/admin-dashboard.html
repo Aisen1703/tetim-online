@@ -7,13 +7,25 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <script>
+    const adminUser = JSON.parse(localStorage.getItem('user') || 'null');
+    const adminToken = localStorage.getItem('token');
+
+    if (!adminToken || !adminUser || adminUser.role !== 'admin') {
+      window.location.href = 'login.html';
+    }
+  </script>
+
   <main class="container" style="padding: 40px 0;">
     <div class="section-title-row">
       <div>
         <h1>Админ-панель</h1>
         <p>Добавление товаров, список клиентов, управление товарами и заказами</p>
       </div>
-      <button id="admin-logout-btn" class="btn btn-light">Выйти</button>
+      <div class="admin-actions-inline">
+        <a href="account.html" class="btn btn-light">В кабинет</a>
+        <button id="admin-logout-btn" class="btn btn-light">Выйти</button>
+      </div>
     </div>
 
     <div class="promo-banner-grid">

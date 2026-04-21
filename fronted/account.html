@@ -4,31 +4,314 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Личный кабинет — TETIM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="container" style="padding: 40px 0;">
-    <div class="section-title-row">
-      <div>
-        <h1>Личный кабинет</h1>
-        <p>Профиль покупателя и история заказов</p>
+  <header class="site-header">
+    <div class="top-line">
+      <div class="container top-line-inner">
+        <div class="top-line-left">
+          <span>Якутск</span>
+        </div>
+        <div class="top-line-right">
+          <a href="catalog.html">Каталог</a>
+          <a href="cart.html">Корзина</a>
+          <a href="index.html">На главную</a>
+        </div>
       </div>
-      <button id="logout-btn" class="btn btn-light">Выйти</button>
     </div>
 
-    <div class="cart-layout">
-      <div class="card-lite">
-        <h3>Профиль</h3>
-        <div id="profile-block"></div>
-      </div>
+    <div class="main-header">
+      <div class="container main-header-inner">
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo-full.png" alt="TETIM" class="brand-logo" />
+        </a>
 
-      <div class="card-lite">
-        <h3>Мои заказы</h3>
-        <div id="orders-block"></div>
+        <a href="catalog.html" class="catalog-button">Каталог</a>
+
+        <div class="search-box">
+          <input type="text" placeholder="Поиск по товарам" />
+        </div>
+
+        <div class="header-icons">
+          <a href="account.html" class="header-icon-link">Профиль</a>
+          <a href="cart.html" class="header-icon-link cart-link">Корзина <span id="cart-count">0</span></a>
+        </div>
       </div>
+    </div>
+  </header>
+
+  <main class="container account-page">
+    <div class="account-title-row">
+      <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
+
+      <div class="account-top-actions">
+        <button id="admin-btn" class="btn btn-dark hidden">Админ-панель</button>
+        <button id="logout-btn" class="btn btn-light">Выйти</button>
+      </div>
+    </div>
+
+    <div class="account-layout">
+      <aside class="account-sidebar">
+        <button class="account-menu-link active" data-tab="profile">Мои данные</button>
+        <button class="account-menu-link" data-tab="orders">Мои заказы</button>
+        <button class="account-menu-link" data-tab="returns">Мои возвраты</button>
+        <button class="account-menu-link" data-tab="bonuses">Мои бонусы</button>
+        <button class="account-menu-link" data-tab="discounts">Мои скидки</button>
+        <button class="account-menu-link" data-tab="promos">Мои промокоды</button>
+        <button class="account-menu-link" data-tab="addresses">Адреса доставки</button>
+        <button class="account-menu-link" data-tab="notifications">Уведомления</button>
+        <button class="account-menu-link" data-tab="history">История просмотров</button>
+        <button class="account-menu-link" data-tab="subscriptions">Управление подписками</button>
+      </aside>
+
+      <section class="account-content">
+        <div class="account-panel active" id="tab-profile">
+          <h2>Мои данные</h2>
+
+          <div class="account-section">
+            <h3>Личная информация</h3>
+
+            <div class="account-form-grid">
+              <label class="account-field">
+                <span>Имя</span>
+                <input type="text" id="profile-name" />
+              </label>
+
+              <label class="account-field">
+                <span>Фамилия</span>
+                <input type="text" id="profile-lastname" />
+              </label>
+
+              <label class="account-field">
+                <span>Email</span>
+                <input type="email" id="profile-email" />
+              </label>
+
+              <label class="account-field">
+                <span>Телефон</span>
+                <input type="text" id="profile-phone" />
+              </label>
+
+              <label class="account-field">
+                <span>Дата рождения</span>
+                <input type="text" id="profile-birthday" placeholder="17.03.1998" />
+              </label>
+
+              <div class="account-field">
+                <span>Пол</span>
+                <div class="radio-group">
+                  <label><input type="radio" name="gender" value="male" checked> Мужской</label>
+                  <label><input type="radio" name="gender" value="female"> Женский</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="account-section">
+            <h3>Адрес</h3>
+
+            <div class="account-form-grid">
+              <label class="account-field">
+                <span>Город</span>
+                <input type="text" id="profile-city" placeholder="Якутск" />
+              </label>
+
+              <label class="account-field">
+                <span>Улица</span>
+                <input type="text" id="profile-street" placeholder="ул. Чкалова" />
+              </label>
+
+              <label class="account-field">
+                <span>Дом</span>
+                <input type="text" id="profile-house" />
+              </label>
+
+              <label class="account-field">
+                <span>Квартира</span>
+                <input type="text" id="profile-flat" />
+              </label>
+            </div>
+          </div>
+
+          <div class="account-actions">
+            <button class="btn btn-dark" id="save-profile-btn">Сохранить изменения</button>
+          </div>
+
+          <div id="profile-message" class="message hidden"></div>
+        </div>
+
+        <div class="account-panel" id="tab-orders">
+          <h2>Мои заказы</h2>
+          <div id="orders-block" class="account-list"></div>
+        </div>
+
+        <div class="account-panel" id="tab-returns">
+          <h2>Мои возвраты</h2>
+          <div class="empty-box">Возвратов пока нет</div>
+        </div>
+
+        <div class="account-panel" id="tab-bonuses">
+          <h2>Мои бонусы</h2>
+          <div class="empty-box">Бонусы пока не начислены</div>
+        </div>
+
+        <div class="account-panel" id="tab-discounts">
+          <h2>Мои скидки</h2>
+          <div class="empty-box">Персональные скидки пока не активированы</div>
+        </div>
+
+        <div class="account-panel" id="tab-promos">
+          <h2>Мои промокоды</h2>
+          <div class="empty-box">Активных промокодов нет</div>
+        </div>
+
+        <div class="account-panel" id="tab-addresses">
+          <h2>Адреса доставки</h2>
+          <div class="empty-box">Сохранённые адреса пока не добавлены</div>
+        </div>
+
+        <div class="account-panel" id="tab-notifications">
+          <h2>Уведомления</h2>
+          <div class="empty-box">Новых уведомлений нет</div>
+        </div>
+
+        <div class="account-panel" id="tab-history">
+          <h2>История просмотров</h2>
+          <div class="empty-box">История просмотров пока пуста</div>
+        </div>
+
+        <div class="account-panel" id="tab-subscriptions">
+          <h2>Управление подписками</h2>
+          <div class="empty-box">Настройки подписок будут здесь</div>
+        </div>
+      </section>
     </div>
   </main>
 
-  <script src="account.js"></script>
+  <script>
+    const API_URL = 'http://localhost:4000/api';
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+    if (!token || !user) {
+      window.location.href = 'login.html';
+    }
+
+    const menuButtons = document.querySelectorAll('.account-menu-link');
+    const panels = document.querySelectorAll('.account-panel');
+    const adminBtn = document.getElementById('admin-btn');
+
+    menuButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+
+        menuButtons.forEach(btn => btn.classList.remove('active'));
+        panels.forEach(panel => panel.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(`tab-${tab}`).classList.add('active');
+      });
+    });
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountEl = document.getElementById('cart-count');
+      if (cartCountEl) {
+        cartCountEl.textContent = String(count);
+      }
+    }
+
+    function fillBaseProfile() {
+      document.getElementById('profile-name').value = user.name || '';
+      document.getElementById('profile-email').value = user.email || '';
+      document.getElementById('profile-phone').value = user.phone || '';
+    }
+
+    async function loadProfile() {
+      try {
+        const response = await fetch(`${API_URL}/account/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+        if (!response.ok) return;
+
+        document.getElementById('profile-name').value = data.user.name || '';
+        document.getElementById('profile-email').value = data.user.email || '';
+        document.getElementById('profile-phone').value = data.user.phone || '';
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function loadOrders() {
+      const block = document.getElementById('orders-block');
+
+      try {
+        const response = await fetch(`${API_URL}/account/orders`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          block.innerHTML = '<div class="empty-box">Не удалось загрузить заказы</div>';
+          return;
+        }
+
+        if (!data.orders.length) {
+          block.innerHTML = '<div class="empty-box">Заказов пока нет</div>';
+          return;
+        }
+
+        block.innerHTML = data.orders.map(order => `
+          <div class="order-row">
+            <div>
+              <div class="order-row-title">Заказ #${order.id}</div>
+              <div class="order-row-meta">Статус: ${order.status}</div>
+              <div class="order-row-meta">${new Date(order.created_at).toLocaleString('ru-RU')}</div>
+            </div>
+            <div class="order-row-price">${Number(order.total_amount).toLocaleString('ru-RU')} ₽</div>
+          </div>
+        `).join('');
+      } catch (error) {
+        block.innerHTML = '<div class="empty-box">Ошибка загрузки заказов</div>';
+      }
+    }
+
+    if (user && user.role === 'admin') {
+      adminBtn.classList.remove('hidden');
+
+      adminBtn.addEventListener('click', () => {
+        window.location.href = 'admin-dashboard.html';
+      });
+    }
+
+    document.getElementById('save-profile-btn').addEventListener('click', () => {
+      const message = document.getElementById('profile-message');
+      message.textContent = 'Изменения сохранены локально';
+      message.classList.remove('hidden');
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = 'login.html';
+    });
+
+    fillBaseProfile();
+    loadProfile();
+    loadOrders();
+    updateCartCount();
+  </script>
 </body>
 </html>
